@@ -11,7 +11,7 @@ class Forest extends React.Component {
     ));
 
     return (
-    <div className="forest d-flex flex-wrap">
+    <div className="Forest d-flex flex-wrap">
      {makeMushrooms}
     </div>
     );
