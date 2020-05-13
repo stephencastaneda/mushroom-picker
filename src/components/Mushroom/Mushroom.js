@@ -1,6 +1,11 @@
 import React from 'react';
+import mushroomShape from '../../helpers/Propz/mushroomShape';
 
 class Mushroom extends React.Component {
+  static propTypes = {
+    mushroom: mushroomShape.mushroomShape,
+  }
+
   render() {
     const { mushroom } = this.props;
     return (
