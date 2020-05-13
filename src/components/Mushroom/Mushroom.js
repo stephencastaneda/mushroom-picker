@@ -9,7 +9,7 @@ class Mushroom extends React.Component {
   render() {
     const { mushroom } = this.props;
     return (
-      <div className="mushroom col-3">
+      <div className="mushroom col-3 s12">
         <div className="card">
           <img className="card-img-top" src={mushroom.imgUrl} alt="Mushroom Card"/>
           <div className="card-body">
