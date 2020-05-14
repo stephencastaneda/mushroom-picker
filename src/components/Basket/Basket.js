@@ -1,10 +1,12 @@
 import React from 'react';
 
+import Mushroom from '../Mushroom/Mushroom';
+
 class Basket extends React.Component {
   render() {
     const { basket } = this.props;
     const makeBasket = basket.map((mushroom) => (
-      <Basket key={mushroom.id} mushroom={mushroom}/>
+      <Mushroom key={mushroom.id} mushroom={mushroom}/>
     ));
 
     return (
