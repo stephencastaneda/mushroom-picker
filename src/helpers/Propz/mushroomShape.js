@@ -10,4 +10,4 @@ const mushroomShape = PropTypes.shape({
   isDeadly: PropTypes.bool.isRequired,
 });
 
-export default mushroomShape;
+export default { mushroomShape };
