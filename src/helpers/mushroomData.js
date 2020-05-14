@@ -181,15 +181,33 @@ const mushrooms = [
   },
 ];
 
-const basket = [];
+let basket = [];
 
 const getBasket = () => basket;
+
+const removeTwoMushrooms = () => {
+  basket = getBasket();
+  const removedMushrooms = basket.splice(0, 2);
+  return basket;
+};
 
 const getMushrooms = () => mushrooms;
 
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
-  basket.push(randomMushroom);
+  if (randomMushroom.isPoisonous === true) {
+    removeTwoMushrooms();
+  } else {
+    basket.push(randomMushroom);
+  }
 };
+
+
+// selectedMushroom = randomMushroom;
+// randomMushrooms.forEach((randomMushroom) => {
+//   if (randomMushroom.isPoisonous === true) {
+//     basket.shift();
+//   } else {
+
 
 export default { getMushrooms, getBasket, pickAMushroom };
