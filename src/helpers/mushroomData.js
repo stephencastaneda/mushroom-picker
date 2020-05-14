@@ -191,12 +191,20 @@ const removeTwoMushrooms = () => {
   return basket;
 };
 
+const emptyBasket = () => {
+  basket = getBasket();
+  basket = [];
+  return basket;
+};
+
 const getMushrooms = () => mushrooms;
 
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   if (randomMushroom.isPoisonous === true) {
     removeTwoMushrooms();
+  } else if (randomMushroom.isDeadly === true) {
+    emptyBasket();
   } else {
     basket.push(randomMushroom);
   }
