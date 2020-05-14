@@ -17,26 +17,22 @@ class App extends React.Component {
   componentDidMount() {
     const mushrooms = mushroomData.getMushrooms();
     this.setState({ mushrooms });
-  }
-
-  pickAMushroom = (mushroomId) => {
-    mushroomData.pickAMushroom(mushroomId);
     const basket = mushroomData.getBasket();
     this.setState({ basket });
   }
 
-  pickMushroomEvent = (e) => {
+  pickAMushroom = (e) => {
     e.preventDefault();
-    const pickAMushroom = this.pickAMushroom();
-    // const { mushroom } = this.state.mushroom;
-    pickAMushroom(mushroom.id);
+    mushroomData.pickAMushroom();
+    const basket = mushroomData.getBasket();
+    this.setState({ basket });
   }
 
   render() {
     return (
       <div className="App">
         <h1>Mushroom Picker</h1>
-        <button className="btn btn-danger p-2 mb-3" onClick={this.pickMushroomEvent}>Pick A Mushroom</button>
+        <button className="btn btn-danger p-2 mb-3" onClick={this.pickAMushroom}>Pick A Mushroom</button>
         <Forest mushrooms={this.state.mushrooms}/>
         <Basket basket={this.state.basket} />
       </div>

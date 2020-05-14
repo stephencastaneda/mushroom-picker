@@ -189,7 +189,7 @@ const getMushrooms = () => mushrooms;
 
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
-  mushrooms.push(randomMushroom);
+  basket.push(randomMushroom);
 };
 
 export default { getMushrooms, getBasket, pickAMushroom };
