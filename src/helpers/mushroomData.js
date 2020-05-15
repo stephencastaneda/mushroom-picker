@@ -68,7 +68,7 @@ const mushrooms = [
     description: 'Hedgehog or sweet tooth mushrooms get their name from the gills underneath their cap.',
     imgUrl: 'https://media.mnn.com/assets/images/2018/02/hedgehog-mushroom.jpg.1440x960_q100_crop-scale_upscale.jpg',
     isMagic: false,
-    isPoisonous: false,
+    isPoisonous: true,
     isDeadly: false,
   },
   {
@@ -158,7 +158,7 @@ const mushrooms = [
     description: 'It has a stringy meat texture and a sweet savory flavor that is compared to lobster or crab meat.',
     imgUrl: 'https://static1.squarespace.com/static/55d9e933e4b004326c39c4f9/584450f4d2b857fe88220e52/5844541ad1758e37a12a0aed/1497041646084/?format=1500w',
     isMagic: false,
-    isPoisonous: false,
+    isPoisonous: true,
     isDeadly: false,
   },
   {
