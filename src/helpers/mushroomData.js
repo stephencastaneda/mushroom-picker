@@ -94,7 +94,7 @@ const mushrooms = [
     name: 'Morel',
     description: 'Morels are some of the most sought after wild mushrooms. They are not farmed or sold in stores.',
     imgUrl: 'https://www.thespruce.com/thmb/JnZjVsa--3xkff-im4IAVJI7QW8=/2121x1414/filters:fill(auto,1)/GettyImages-681903292-f709e7ad12c34a03bc3489b64acaa289.jpg',
-    isMagic: false,
+    isMagic: true,
     isPoisonous: false,
     isDeadly: false,
   },
@@ -188,13 +188,24 @@ const getBasket = () => basket;
 const removeTwoMushrooms = () => {
   basket = getBasket();
   const removedMushrooms = basket.splice(0, 2);
+  console.log('picked a poisonous', removedMushrooms);
   return basket;
 };
 
 const emptyBasket = () => {
   basket = getBasket();
   basket = [];
+  console.log('picked a deadly', basket);
   return basket;
+};
+
+const fillBasketMagically = () => {
+  mushrooms.forEach((mushroom) => {
+    if (!mushroom.isDeadly && !mushroom.isPoisonous && !mushroom.isPoisonous) {
+      console.error('dis my shroom', mushroom);
+    }
+    basket.push(mushroom);
+  });
 };
 
 const getMushrooms = () => mushrooms;
@@ -205,6 +216,8 @@ const pickAMushroom = () => {
     removeTwoMushrooms();
   } else if (randomMushroom.isDeadly === true) {
     emptyBasket();
+  } else if (randomMushroom.isMagic === true) {
+    fillBasketMagically();
   } else {
     basket.push(randomMushroom);
   }
