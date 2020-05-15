@@ -1,0 +1,18 @@
+.alert{
+	position:fixed;
+	height:200px;
+	width:200px;
+	z-index: 1000;
+	background-color:white;
+
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+
+	&.show{
+		display:block;
+	}
+	&.hide{
+		display:none;
+	}
+}
