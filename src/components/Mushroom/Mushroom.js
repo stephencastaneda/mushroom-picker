@@ -16,7 +16,7 @@ class Mushroom extends React.Component {
           <h5 className="card-title">{mushroom.name}</h5>
           <p className="card-text"></p>
         </div>
-        <div className="card-footer"></div>
+        <div className="card-footer">{mushroom.count}</div>
         </div>
       </div>
     );
