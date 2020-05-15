@@ -5,10 +5,28 @@ import Mushroom from '../Mushroom/Mushroom';
 class Basket extends React.Component {
   render() {
     const { basket } = this.props;
-    const makeBasket = basket.map((mushroom) => (
+    // store 1 copy of every mushroom type
+    const uniqueBasket = {};
+    basket.map((mushroom) => {
+      if (!uniqueBasket[mushroom.id]) {
+        // iterate over the mushrooms and add them to the unique basket
+        uniqueBasket[mushroom.id] = { ...mushroom, count: 1 };
+      } else {
+        // increment mushrooms that already exist in the basket
+        uniqueBasket[mushroom.id].count += 1;
+      }
+    });
+    // convert mushroom count into an array that we pass to function
+    const basketToDisplay = [];
+    for (const key in uniqueBasket) {
+      if ({}.hasOwnProperty.call(uniqueBasket, key)) {
+        basketToDisplay.push(uniqueBasket[key]);
+      }
+    }
+    console.log('unique basket', uniqueBasket);
+    const makeBasket = basketToDisplay.map((mushroom) => (
       <Mushroom key={mushroom.id} mushroom={mushroom}/>
     ));
-
     return (
       <div className="Basket">
         <div className="Basket-title">
