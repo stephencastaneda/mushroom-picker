@@ -201,10 +201,11 @@ const emptyBasket = () => {
 
 const fillBasketMagically = () => {
   mushrooms.forEach((mushroom) => {
-    if (!mushroom.isDeadly && !mushroom.isPoisonous && !mushroom.isPoisonous) {
+    if (mushroom.isDeadly === false && mushroom.isMagic === false && mushroom.isPoisonous === false) {
       console.error('dis my shroom', mushroom);
+      basket.push(mushroom);
     }
-    basket.push(mushroom);
+    return basket;
   });
 };
 
