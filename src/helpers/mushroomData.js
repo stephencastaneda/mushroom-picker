@@ -188,21 +188,20 @@ const getMushrooms = () => mushrooms;
 const getBasket = () => basket;
 
 const getAllRegularMushrooms = () => {
-  console.error('getting da shrooms');
   const regularMushrooms = [];
   const shrooms = getMushrooms();
   shrooms.forEach((shroom) => {
     if (shroom.isDeadly === false && shroom.isMagic === false && shroom.isPoisonous === false) {
-      regularMushrooms.push(mushrooms);
+      regularMushrooms.push(shroom);
     }
-    return regularMushrooms;
   });
+  return regularMushrooms;
 };
 
 const basketCheck = () => {
-  console.error('basket checkkkkkkk');
   basket = getBasket();
-  const regularMushrooms = getMushrooms();
+  const regularMushrooms = getAllRegularMushrooms();
+  console.log('in the basket check function', regularMushrooms);
   const checkBasket = regularMushrooms.map((item) => {
     const isIncluded = basket.includes((item));
     return isIncluded;
