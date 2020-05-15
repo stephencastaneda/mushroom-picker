@@ -183,7 +183,34 @@ const mushrooms = [
 
 let basket = [];
 
+const getMushrooms = () => mushrooms;
+
 const getBasket = () => basket;
+
+const getAllRegularMushrooms = () => {
+  const regularMushrooms = [];
+  const shrooms = getMushrooms();
+  shrooms.forEach((shroom) => {
+    if (shroom.isDeadly === false && shroom.isMagic === false && shroom.isPoisonous === false) {
+      regularMushrooms.push(shroom);
+    }
+  });
+  return regularMushrooms;
+};
+
+const basketCheck = () => {
+  basket = getBasket();
+  const regularMushrooms = getAllRegularMushrooms();
+  console.log('in the basket check function', regularMushrooms);
+  const checkBasket = regularMushrooms.map((item) => {
+    const isIncluded = basket.includes((item));
+    return isIncluded;
+  });
+  const isWinner = checkBasket.every((x) => x === true);
+  if (isWinner) {
+    console.log('we won this thang!!!!!!!!!!!!!!!!!!!!');
+  }
+};
 
 const removeTwoMushrooms = () => {
   basket = getBasket();
@@ -209,7 +236,6 @@ const fillBasketMagically = () => {
   });
 };
 
-const getMushrooms = () => mushrooms;
 
 const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
@@ -222,6 +248,8 @@ const pickAMushroom = () => {
   } else {
     basket.push(randomMushroom);
   }
+  basketCheck();
+  getAllRegularMushrooms();
 };
 
 
