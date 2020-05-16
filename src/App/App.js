@@ -31,10 +31,9 @@ class App extends React.Component {
     // mushroomData.pickAMushroom();
     if (wonTheGame === 'fatality') {
       this.setState({ showDarkAndScary: true });
-    } else {
-      const basket = mushroomData.getBasket();
-      this.setState({ basket, showAlert: wonTheGame });
     }
+    const basket = mushroomData.getBasket();
+    this.setState({ basket, showAlert: wonTheGame });
   }
 
   closeAlert = () => {

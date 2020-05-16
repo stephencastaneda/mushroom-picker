@@ -23,7 +23,6 @@ class Basket extends React.Component {
         basketToDisplay.push(uniqueBasket[key]);
       }
     }
-    console.log('unique basket', uniqueBasket);
     const makeBasket = basketToDisplay.map((mushroom) => (
       <Mushroom key={mushroom.id} mushroom={mushroom}/>
     ));

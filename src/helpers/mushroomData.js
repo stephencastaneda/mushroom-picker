@@ -182,36 +182,6 @@ const mushrooms = [
   },
 ];
 
-// const mushrooms = [
-//   {
-//     id: 'mushroom18',
-//     name: 'Lions Mane',
-//     description: 'It has a stringy meat texture and a sweet savory flavor that is compared to lobster or crab meat.',
-//     imgUrl: 'https://static1.squarespace.com/static/55d9e933e4b004326c39c4f9/584450f4d2b857fe88220e52/5844541ad1758e37a12a0aed/1497041646084/?format=1500w',
-//     isMagic: false,
-//     isPoisonous: true,
-//     isDeadly: false,
-//   },
-//   {
-//     id: 'mushroom19',
-//     name: 'Matsutake',
-//     description: 'Matsutake mushrooms can be hard to find since they grow under specific trees and are normally hidden by leaves and other brush on the forest floor.',
-//     imgUrl: 'https://i1.wp.com/foragerchef.com/wp-content/uploads/2020/02/Matsutake-Hunt-2019-How-to-Hunt-Matsutake-in-the-Midwest-3-2.jpg?fit=1000%2C667&ssl=1',
-//     isMagic: false,
-//     isPoisonous: false,
-//     isDeadly: false,
-//   },
-//   {
-//     id: 'mushroom20',
-//     name: 'Death Cap',
-//     description: 'Within 6 to 12 hours after consumption, violent abdominal pain, vomiting, and bloody diarrhea appear, causing rapid loss of fluid from the tissues and intense thirst.',
-//     imgUrl: 'https://bayareamushrooms.org/images/pictures/phalloides5.jpg',
-//     isMagic: false,
-//     isPoisonous: false,
-//     isDeadly: true,
-//   },
-// ];
-
 let basket = [];
 
 const getMushrooms = () => mushrooms;
@@ -233,7 +203,6 @@ const getAllRegularMushrooms = () => {
 const basketCheck = () => {
   basket = getBasket();
   const regularMushrooms = getAllRegularMushrooms();
-  console.log('in the basket check function', regularMushrooms);
   // want to make sure your basket contains all the regular mushrooms
   let currentlyWinning = true;
   regularMushrooms.map((mushroom) => {
@@ -244,7 +213,6 @@ const basketCheck = () => {
   });
   // currentlyWinning will pass through as long as all the mushrooms are there
   if (currentlyWinning) {
-    console.log('we won this thang!!!!!!!!!!!!!!!!!!!!');
     return true;
   }
 };
@@ -257,15 +225,14 @@ const removeTwoMushrooms = () => {
 };
 
 const emptyBasket = () => {
-  basket = getBasket();
+  console.log('picked a deadly');
   basket = [];
-  return basket;
+  return [];
 };
 
 const fillBasketMagically = () => {
   mushrooms.forEach((mushroom) => {
     if (mushroom.isDeadly === false && mushroom.isMagic === false && mushroom.isPoisonous === false) {
-      console.error('dis my shroom', mushroom);
       basket.push(mushroom);
     }
     return basket;
@@ -277,21 +244,19 @@ const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   if (randomMushroom.isPoisonous === true) {
     removeTwoMushrooms();
-  } if (randomMushroom.isDeadly === true) {
+  } else if (randomMushroom.isDeadly === true) {
     emptyBasket();
-    // return 'fatality';
-  } if (randomMushroom.isMagic === true) {
+    return 'fatality';
+  } else if (randomMushroom.isMagic === true) {
     fillBasketMagically();
+    return 'youwon';
   } else {
     basket.push(randomMushroom);
+    if (basketCheck()) {
+      return 'youwon';
+    }
   }
-  getAllRegularMushrooms();
-  const success = basketCheck();
-  console.log('basketCheck', success);
-  return success;
 };
-
-
 // selectedMushroom = randomMushroom;
 // randomMushrooms.forEach((randomMushroom) => {
 //   if (randomMushroom.isPoisonous === true) {
