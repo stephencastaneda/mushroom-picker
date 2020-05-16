@@ -37,15 +37,27 @@
   }
 }
 
+.Forest {
+  width: 50%;
+  float: left;
+  margin-top: 140px;
+}
 .Basket {
   margin-top: 20px;
   margin-left: 30px;
   margin-right: 30px;
   border-color: black;
   border: solid;
+  width: 45%;
   justify-content: center;
+  float: right;
 }
 
-.Basket-container {
-  border: solid;
+
+.picker-button {
+  text-align: center;
+}
+
+.card-footer {
+  background-color: grey;
 }

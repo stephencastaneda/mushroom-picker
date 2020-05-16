@@ -11,7 +11,7 @@ class DarkAndScarry extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => { this.setState({ showJumpScare: true }); }, 2000);
+    setTimeout(() => { this.setState({ showJumpScare: true }); }, 50);
   }
 
   render() {
