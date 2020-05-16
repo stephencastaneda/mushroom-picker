@@ -32,7 +32,7 @@ class Basket extends React.Component {
         <div className="Basket-title">
           <h2>My Basket</h2>
         </div>
-        <div className="Basket-container d-flex flex-wrap">
+        <div className="Basket-container d-flex flex-wrap row">
           {makeBasket}
         </div>
        </div>

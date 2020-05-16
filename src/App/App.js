@@ -49,7 +49,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Mushroom Picker</h1>
+        <div className="picker-button">
         <button className="btn btn-danger p-2 mb-3" onClick={this.pickAMushroom}>Pick A Mushroom</button>
+        </div>
         <Forest mushrooms={this.state.mushrooms}/>
         <Basket basket={this.state.basket} />
         <Alert showAlert={this.state.showAlert} closeAlert={this.closeAlert}/>
