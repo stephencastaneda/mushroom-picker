@@ -1,0 +1,19 @@
+.darkAndScarry {
+  position: fixed;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: black;
+  &.show {
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-image: url(https://media.tenor.com/images/981cf6edba5f00cec92737192ac17107/tenor.gif);
+    display: block;
+  }
+  &.hide {
+    display: none;
+  }
+}

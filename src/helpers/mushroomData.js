@@ -13,8 +13,6 @@
 //     id: 'mushroom2',
 //     name: 'Cremini',
 // eslint-disable-next-line no-irregular-whitespace
-// eslint-disable-next-line max-len
-// eslint-disable-next-line no-irregular-whitespace
 //     description: 'Cremini mushrooms, also called crimini mushrooms, are actually part of the same ​species as button mushrooms (Agaricus bisporus), but are a brown variation with a slightly deeper flavour',
 //     imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/51JP1XQScAL._SX679_.jpg',
 //     isMagic: false,
@@ -188,31 +186,31 @@
 
 const mushrooms = [
   {
-    id: 'mushroom1',
-    name: 'Button',
-    description: 'Common type of mushroom found in grocery stores. Great toppings on pizza!',
-    imgUrl: 'https://bloximages.newyork1.vip.townnews.com/hoosiertimes.com/content/tncms/assets/v3/editorial/5/d2/5d2940e4-26a6-5559-be4a-c0800bad3846/5ba3ddead6426.image.jpg?resize=400%2C288',
+    id: 'mushroom18',
+    name: 'Lions Mane',
+    description: 'It has a stringy meat texture and a sweet savory flavor that is compared to lobster or crab meat.',
+    imgUrl: 'https://static1.squarespace.com/static/55d9e933e4b004326c39c4f9/584450f4d2b857fe88220e52/5844541ad1758e37a12a0aed/1497041646084/?format=1500w',
+    isMagic: false,
+    isPoisonous: true,
+    isDeadly: false,
+  },
+  {
+    id: 'mushroom19',
+    name: 'Matsutake',
+    description: 'Matsutake mushrooms can be hard to find since they grow under specific trees and are normally hidden by leaves and other brush on the forest floor.',
+    imgUrl: 'https://i1.wp.com/foragerchef.com/wp-content/uploads/2020/02/Matsutake-Hunt-2019-How-to-Hunt-Matsutake-in-the-Midwest-3-2.jpg?fit=1000%2C667&ssl=1',
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
   },
   {
-    id: 'mushroom2',
-    name: 'Cremini',
-    description: 'Cremini mushrooms, also called crimini mushrooms, are actually part of the same ​species as button mushrooms (Agaricus bisporus), but are a brown variation with a slightly deeper flavour',
-    imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/51JP1XQScAL._SX679_.jpg',
+    id: 'mushroom20',
+    name: 'Death Cap',
+    description: 'Within 6 to 12 hours after consumption, violent abdominal pain, vomiting, and bloody diarrhea appear, causing rapid loss of fluid from the tissues and intense thirst.',
+    imgUrl: 'https://bayareamushrooms.org/images/pictures/phalloides5.jpg',
     isMagic: false,
     isPoisonous: false,
-    isDeadly: false,
-  },
-  {
-    id: 'mushroom3',
-    name: 'Portobello',
-    description: 'Portobellos are large enough to be used as vegetarian burgers or stuffed with other ingredients, and are often baked instead of fried.',
-    imgUrl: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/portobello-mushroom-pizza-1573760586.jpg?crop=1.00xw:1.00xh;0,0.00116xh&resize=480:*',
-    isMagic: false,
-    isPoisonous: false,
-    isDeadly: false,
+    isDeadly: true,
   },
 ];
 
@@ -247,7 +245,6 @@ const basketCheck = () => {
     }
   });
   // currentlyWinning will pass through as long as all the mushrooms are there
-  // const isWinner = checkBasket.every((x) => x === true);
   if (currentlyWinning) {
     console.log('we won this thang!!!!!!!!!!!!!!!!!!!!');
     return true;
@@ -283,9 +280,14 @@ const pickAMushroom = () => {
   const randomMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   if (randomMushroom.isPoisonous === true) {
     removeTwoMushrooms();
-  } else if (randomMushroom.isDeadly === true) {
+    // const loseMushroom = removeTwoMushrooms();
+    // return loseMushroom;
+  } if (randomMushroom.isDeadly === true) {
     emptyBasket();
-  } else if (randomMushroom.isMagic === true) {
+    return 'fatality';
+    // const loser = emptyBasket();
+    // return loser;
+  } if (randomMushroom.isMagic === true) {
     fillBasketMagically();
   } else {
     basket.push(randomMushroom);
@@ -304,4 +306,10 @@ const pickAMushroom = () => {
 //   } else {
 
 
-export default { getMushrooms, getBasket, pickAMushroom };
+export default {
+  getMushrooms,
+  getBasket,
+  pickAMushroom,
+  emptyBasket,
+  removeTwoMushrooms,
+};
